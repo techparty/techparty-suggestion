@@ -1,0 +1,154 @@
+/*
+*
+*   RESET
+*
+*/
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+a {
+  color: #CF080F;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #FF7F81;
+  transition: color 0.3s;
+}
+
+textarea {
+  padding: 0.5em;
+}
+
+.github-link {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.header {
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0.5em 0 #666666;
+  height: 100%;
+  position: fixed;
+  width: 25%;
+  z-index: 9;
+}
+
+.header .logo {
+  display: block;
+  position: relative;
+}
+
+.header .logo img {
+  left: 50%;
+  margin-left: -75px;
+  position: absolute;
+  width: 150px;
+}
+
+.header nav {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.header nav ul {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.header nav li {
+  font-size: 1.2em;
+  line-height: 2em;
+}
+
+.header nav li.active a {
+  text-decoration: underline;
+}
+
+
+.content {
+  background-color: #F2F2F2;
+  float: left;
+  margin-left: 25%;
+  width: 75%;
+}
+
+.footer {
+  background-color: #CF080F;
+  color: #FFFFFF;
+  padding-left: 5%;
+  position: fixed;
+  bottom: 0;
+}
+
+
+@media only screen and (min-width : 320px) and (max-width: 567px) {
+  .header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+  }
+
+  .content {
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width : 568px) and (max-width: 767px) {
+  .header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+  }
+
+  .content {
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width : 768px) and (max-width: 1023px) {
+  .header {
+    width: 200px;
+  }
+
+  .content {
+    padding-left: 200px;
+  }
+}
+
+@media only screen and (min-width : 1024px) and (max-width: 1499px) {
+
+}
+
+
+@media only screen and (min-width : 1500px) {
+
+}
+
+
+
+
+/* main */
+
+main {
+  margin-left: 20%;
+  padding: 2em;
+  width: 80%;
+}
+
+main .default-suggestion li {
+  margin: 0.5em 0.5em 0 1.5em;
+}
+
