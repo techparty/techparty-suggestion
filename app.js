@@ -3,7 +3,9 @@
 var express = require('express'),
     app = express(),
     hbs = require('hbs'),
-    routes = require('./routes');
+    path = require('path'),
+    fs = require('fs'),
+    mongoose = require ("mongoose");
 
 app.use(express.static('assets'));
 app.set('view engine', 'html');
@@ -14,11 +16,24 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 
+// Connect to database
+var db = require('./config/db');
+
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.home);
+// models
+var modelsPath = path.join(__dirname, 'models');
+fs.readdirSync(modelsPath).forEach(function (file) {
+  require(modelsPath + '/' + file);
+});
+
+// routes
+var routesPath = path.join(__dirname, 'routes');
+fs.readdirSync(routesPath).forEach(function(file) {
+  require(routesPath + '/' + file)(app);
+});
 
 console.log('init app');
 

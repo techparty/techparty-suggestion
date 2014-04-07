@@ -1,5 +1,13 @@
-'use strict';
+module.exports = function (app) {
 
-exports.home = function (req, resp) {
-  resp.render('home');
-}
+  'use strict';
+
+  var routes = {}
+
+  routes.index = function (req, resp) {
+    resp.render('index');
+  }
+
+  app.get('/', routes.index);
+
+};
