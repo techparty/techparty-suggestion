@@ -42,41 +42,88 @@
       <section class="section">
         <p>Use o formulário abaixo para escolher assuntos para a próxima TechParty.</p>
 
-        <form action="" id="form">
+        <form action="./submit" method="post" id="form">
           <p>
-            <input type="checkbox" name="" id="opt-1">
-            <label for="opt-1">Option 1</label>
+            <input type="checkbox" name="opt[rwd]" id="opt-1">
+            <label for="opt-1">Responsive Web Design</label>
           </p>
 
           <p>
-            <input type="checkbox" name="" id="opt-2">
-            <label for="opt-2">Option 2</label>
+            <input type="checkbox" name="opt[preprocessadores]" id="opt-2">
+            <label for="opt-2">Pré-processadores CSS</label>
           </p>
 
           <p>
-            <input type="checkbox" name="" id="opt-3">
-            <label for="opt-3">Option 3</label>
+            <input type="checkbox" name="opt[html5]" id="opt-3">
+            <label for="opt-3">HTML 5</label>
           </p>
 
           <p>
-            <input type="checkbox" name="" id="opt-4">
-            <label for="opt-4">Option 4</label>
+            <input type="checkbox" name="opt[javascript]" id="opt-4">
+            <label for="opt-4">Javascript</label>
           </p>
 
           <p>
-            <input type="checkbox" name="" id="opt-5">
-            <label for="opt-5">Option 5</label>
+            <input type="checkbox" name="opt[ios]" id="opt-5">
+            <label for="opt-5">Desenvolvimento para iOS</label>
           </p>
 
           <p>
-            <input type="checkbox" name="" id="opt-6">
-            <label for="opt-6">Option 6</label>
+            <input type="checkbox" name="opt[android]" id="opt-6">
+            <label for="opt-6">Desenvolvimento para Android</label>
+          </p>
+
+          <p>
+            <input type="checkbox" name="opt[performance]" id="opt-7">
+            <label for="opt-7">Performance</label>
+          </p>
+
+          <p>
+            <input type="checkbox" name="opt[startups]" id="opt-8">
+            <label for="opt-8">Startups</label>
+          </p>
+
+          <p>
+            <input type="checkbox" name="opt[github]" id="opt-9">
+            <label for="opt-9">Github</label>
+          </p>
+
+          <p>
+            <input type="checkbox" name="opt[webgl]" id="opt-10">
+            <label for="opt-10">WebGL</label>
+          </p>
+
+          <p>
+            <input type="checkbox" name="opt[midiassociais]" id="opt-11">
+            <label for="opt-11">Mídias Sociais</label>
+          </p>
+
+          <p>
+            <input type="checkbox" name="opt[jquery]" id="opt-12">
+            <label for="opt-12">jQuery</label>
+          </p>
+
+          <p>
+            <input type="checkbox" name="opt[htmlapi]" id="opt-13">
+            <label for="opt-13">APIs de HTML5</label>
           </p>
 
           <p>
             <label for="opt-other">Outra sugestão?</label> <br>
             <textarea name="" id="opt-other"></textarea>
           </p>
+
+          <p>
+            <label for="opt-name">Nome</label> <br>
+            <input type="text" name="" id="opt-name">
+          </p>
+
+          <p>
+            <label for="opt-email">Email</label> <br>
+            <input type="email" name="" id="opt-email">
+          </p>
+
+          <button type="submit">Enviar</button>
         </form>
 
       </section>
