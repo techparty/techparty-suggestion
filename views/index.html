@@ -45,13 +45,30 @@
       <section class="section">
         <p>Use o formulário abaixo para escolher assuntos para a próxima TechParty.</p>
 
-        <form action="" id="form">
+        <form action="./submit" method="post" id="form">
           {{#each suggestions}}
             <p>
-              <input type="checkbox" name="{{this}}" id="{{this}}">
-              <label for="{{this}}">{{this}}</label>
+              <input type="checkbox" name="opt[{{name}}]" id="{{name}}">
+              <label for="{{name}}">{{value}}</label>
             </p>
           {{/each}}
+
+          <p>
+            <label for="opt-other">Outra sugestão?</label> <br>
+            <textarea name="" id="opt-other"></textarea>
+          </p>
+
+          <p>
+            <label for="opt-name">Nome</label> <br>
+            <input type="text" name="opt[username]" id="opt-name">
+          </p>
+
+          <p>
+            <label for="opt-email">Email</label> <br>
+            <input type="email" name="opt[useremail]" id="opt-email">
+          </p>
+
+          <button type="submit">Enviar</button>
         </form>
 
       </section>
