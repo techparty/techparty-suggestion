@@ -2,14 +2,15 @@ module.exports = function (app) {
 
   'use strict';
 
-  var routes = {}
+  var routes = {};
 
   routes.index = function (req, resp) {
     resp.render('index');
   };
 
   routes.submit = function (req, resp) {
-  	req.send();
+  	console.log(req.body.opt.username);
+  	console.log(req.body.opt.useremail);
   };
 
   app.get('/', routes.index);
