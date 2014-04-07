@@ -31,11 +31,14 @@
     <main role="main" class="wrapper main">
       <section class="section">
         <header>
-          <h2 class="section-title">{TechParty}</h2>
+          <h2 class="section-title">{TechParty 2015}</h2>
         </header>
 
         <article>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, vel amet asperiores laboriosam ad labore rem ab natus neque dolore illum velit ratione est esse veniam libero quis ipsam nobis similique aut. Qui, eaque iste quam modi expedita eos praesentium deserunt ipsa! Alias, quaerat in iusto molestiae. Voluptatibus, voluptas, obcaecati!
+          <p>Este site foi criado com o propósito de alunos, professores, ou qualquer ser vivo que goste de tecnologia, possa nos ajudar fazer da TechParty 2015 o melhor evento de todos os tempos.</p>
+          <p>Mas como? o.O</p>
+          <p>Através dele, você nos ajuda a escolher os temas para a TechParty 2015. Basta escolher um ou mais dos assuntos já listados ou adicionar sua própria sugestão.</p>
+          <p>TechParty 2014 já foi um sucesso, nos ajude a fazer da TechParty 2015 um sucesso ainda maior.</p>
         </article>
       </section>
 
@@ -43,40 +46,12 @@
         <p>Use o formulário abaixo para escolher assuntos para a próxima TechParty.</p>
 
         <form action="" id="form">
-          <p>
-            <input type="checkbox" name="" id="opt-1">
-            <label for="opt-1">Option 1</label>
-          </p>
-
-          <p>
-            <input type="checkbox" name="" id="opt-2">
-            <label for="opt-2">Option 2</label>
-          </p>
-
-          <p>
-            <input type="checkbox" name="" id="opt-3">
-            <label for="opt-3">Option 3</label>
-          </p>
-
-          <p>
-            <input type="checkbox" name="" id="opt-4">
-            <label for="opt-4">Option 4</label>
-          </p>
-
-          <p>
-            <input type="checkbox" name="" id="opt-5">
-            <label for="opt-5">Option 5</label>
-          </p>
-
-          <p>
-            <input type="checkbox" name="" id="opt-6">
-            <label for="opt-6">Option 6</label>
-          </p>
-
-          <p>
-            <label for="opt-other">Outra sugestão?</label> <br>
-            <textarea name="" id="opt-other"></textarea>
-          </p>
+          {{#each suggestions}}
+            <p>
+              <input type="checkbox" name="{{this}}" id="{{this}}">
+              <label for="{{this}}">{{this}}</label>
+            </p>
+          {{/each}}
         </form>
 
       </section>
