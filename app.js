@@ -1,9 +1,9 @@
 'use strict';
 
 var express = require('express'),
-	app = express(),
-	hbs = require('hbs'),
-	routes = require('./routes');
+    app = express(),
+    hbs = require('hbs'),
+    routes = require('./routes');
 
 app.use(express.static('assets'));
 app.set('view engine', 'html');
