@@ -51,25 +51,32 @@ module.exports = function (app) {
   };
 
   routes.submit = function (req, res) {
-    var suggestions = getSuggestions(req.body.opt),
-  	    userName = req.body.opt.username,
-        userEmail = req.body.opt.useremail;
+    var userEmail = req.body.opt.useremail;
 
+    Suggestion.find({ email: userEmail }, function (err, suggestion) {
 
-    var suggestion = new Suggestion({
-      name: userName,
-      email: userEmail,
-      suggestion: suggestions
-    });
+      if (suggestion.length > 0) {
+        var message = 'Hey ' + userEmail + ', você já enviou sua sugestão :)';
+        req.flash('error', message);
+      } else {
+        var userName = req.body.opt.username,
+            suggestions = getSuggestions(req.body.opt);
 
-    suggestion.save(function (err, suggestion) {
-      if (err) return console.error(err);
-      req.flash('info', 'Obrigado por ajudar a tornar o melhor evento de todos os tempos');
+        suggestion = new Suggestion({
+          name: userName,
+          email: userEmail,
+          suggestion: suggestions
+        });
+
+        suggestion.save(function (err, suggestion) {
+          if (err) return console.error(err);
+          var message = 'Obrigado por ajudar a ' + techparty + ' ' + year  + ' ser o melhor evento de todos os tempos';
+          req.flash('info', message);
+        });
+      }
+
       return res.redirect('/');
     });
-
-    //res.location('/');
-    //res.redirect('/');
   };
 
   function getSuggestions (opt) {

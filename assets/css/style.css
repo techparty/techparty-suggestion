@@ -143,6 +143,10 @@ button:hover {
   background-color: #9FBFF9;
 }
 
+.message-error {
+  background-color: #ED7478;
+}
+
 @media only screen and (min-width : 320px) and (max-width: 567px) {
   .suggestion {
     -moz-columns: 1 auto;
