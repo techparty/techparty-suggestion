@@ -58,6 +58,8 @@ module.exports = function (app) {
   };
 
   routes.submit = function (req, resp) {
+    var opt = req.body.opt;
+    console.log('opt', opt);
   	var userName = req.body.opt.username,
         userEmail = req.body.opt.useremail;
 
