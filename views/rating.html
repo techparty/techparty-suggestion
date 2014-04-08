@@ -1,10 +1,15 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
-  <h1>rating</h1>
-</body>
-</html>
+<section class="section">
+
+  <header>
+    <h2 class="section-title">{ {{techparty}} {{year}} }</h2>
+  </header>
+
+</section>
+
+<article>
+  <ul>
+    {{#each suggestions}}
+      <li>{{this.value}} - {{this.name}}</li>  
+    {{/each}}
+  </ul>
+</article>
