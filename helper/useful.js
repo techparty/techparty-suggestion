@@ -36,7 +36,8 @@ var useful = (function () {
         { name: 'meteor', value: 'Meteor' },
         { name: 'javascript_template', value: 'JavaScript Templates' },
         { name: 'ruby', value: 'Ruby' },
-        { name: 'xmlhttprequest', value: 'XMLHttpRequest Level 2'}
+        { name: 'xmlhttprequest', value: 'XMLHttpRequest Level 2' },
+        { name: 'internet', value: 'Internet das Coisas' }
       ].sort(_compareAsc);
 
   function _compareAsc (a, b) {
@@ -59,15 +60,11 @@ var useful = (function () {
     var values = [];
     Object.keys(opt).forEach(function (element) {
       if (element !== 'username' && element !== 'useremail') {
-        if (element === 'suggestion' && !!opt[element]) {
-          values.push(opt[element]);
-        } else {
-          _suggestionsDefault.map(function (el) {
-            if (el.name === element) {
-              values.push(el.value)
-            }
-          });
-        }
+        _suggestionsDefault.map(function (el) {
+          if (el.name === element) {
+            values.push(el.value)
+          }
+        });
       }
     });
     return values;
