@@ -11,15 +11,15 @@ module.exports = function (app) {
         { name: 'nodejs', value: 'NodeJs' },
         { name: 'oocss', value: 'OOCSS' },
         { name: 'css3', value: 'CSS3' },
-        { name: 'css-bem', value: 'CSS BEM' },
-        { name: 'web-components', value: 'Web Components' },
-        { name: 'shadow-dom', value: 'Shadow DOM' },
+        { name: 'css_bem', value: 'CSS BEM' },
+        { name: 'web_components', value: 'Web Components' },
+        { name: 'shadow_dom', value: 'Shadow DOM' },
         { name: 'seo', value: 'SEO' },
-        { name: 'elastic-search', value: 'ElasticSearch' },
-        { name: 'java-8', value: 'Java 8' },
+        { name: 'elastic_search', value: 'ElasticSearch' },
+        { name: 'java_8', value: 'Java 8' },
         { name: 'reactjs', value: 'ReactJS' },
-        { name: 'css-preprocessors', value: 'CSS Preprocessors' },
-        { name: 'wai-aria', value: 'WAI-ARIA' },
+        { name: 'css_preprocessors', value: 'CSS Preprocessors' },
+        { name: 'wai_aria', value: 'WAI-ARIA' },
         { name: 'rwr', value: 'Responsive Web Design' },
         { name: 'html5', value: 'HTML 5' },
         { name: 'ios', value: 'Desenvolvimento para iOS' },
@@ -30,13 +30,13 @@ module.exports = function (app) {
         { name: 'webgl', value: 'WebGL' },
         { name: 'midias', value: 'Mídias Sociais' },
         { name: 'jquery', value: 'jQuery' },
-        { name: 'api-html5', value: 'APIs de HTML5' },
+        { name: 'api_html5', value: 'APIs de HTML5' },
         { name: 'acessibilidade', value: 'Acessibilidade' },
         { name: 'yeoman', value: 'Yeoman' },
         { name: 'firefox', value: 'Firefox OS' },
         { name: 'heroku', value: 'Heroku Cloud Computing' },
         { name: 'meteor', value: 'Meteor' },
-        { name: 'javascript-template', value: 'JavaScript Templates' },
+        { name: 'javascript_template', value: 'JavaScript Templates' },
         { name: 'ruby', value: 'Ruby' },
         { name: 'xmlhttprequest', value: 'XMLHttpRequest Level 2'}
       ].sort(compare);
@@ -59,7 +59,8 @@ module.exports = function (app) {
 
   routes.submit = function (req, resp) {
   	var userName = req.body.opt.username,
-        userEmail = req.body.opt.useremail
+        userEmail = req.body.opt.useremail;
+
 
     resp.send(userName + ', ' + userEmail);
 
