@@ -58,8 +58,13 @@ module.exports = function (app) {
   };
 
   routes.submit = function (req, resp) {
-  	console.log(req.body.opt.username);
-  	console.log(req.body.opt.useremail);
+  	var userName = req.body.opt.username,
+        userEmail = req.body.opt.useremail
+
+    resp.send(userName + ', ' + userEmail);
+
+    //resp.location('/');
+    //resp.redirect('/');
   };
 
   app.get('/', routes.index);
