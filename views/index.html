@@ -30,9 +30,26 @@
 
     <main role="main" class="wrapper main">
       <section class="section">
+
         <header>
           <h2 class="section-title">{ {{techparty}} {{year}} }</h2>
         </header>
+
+        {{#if messages}}
+          <section class="message">
+            {{#if messages.info}}
+              <div class="message-info">
+                <p>{{messages.info}}</p>
+              </div>
+            {{/if}}
+
+            {{#if messages.error}}
+              <div class="message-error">
+                <p>{{messages.error}}</p>
+              </div>
+            {{/if}}
+          </section>
+        {{/if}}
 
         <article>
           <p>Este site foi criado com o propósito de alunos, professores, ou qualquer ser vivo que goste de tecnologia, e que possam nos ajudar fazer da {{techparty}} {{year}} o melhor evento de todos os tempos.</p>
@@ -57,7 +74,7 @@
 
           <p>
             <label for="suggestion">Outra sugestão?</label> <br>
-            <textarea name="" name="opt[suggestion]" id="suggestion"></textarea>
+            <textarea name="opt[suggestion]" id="suggestion"></textarea>
           </p>
 
           <p>

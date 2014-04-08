@@ -2,10 +2,11 @@ module.exports = function (app) {
 
   'use strict';
 
-  var routes = {},
+  var Suggestion = require('../models/suggestion'),
+      routes = {},
       year = 2015,
       techparty = 'TechParty',
-      suggestions = [
+      suggestionsDefault = [
         { name: 'es6', value: 'JavaScript ES6' },
         { name: 'es7', value: 'JavaScript ES7' },
         { name: 'nodejs', value: 'NodeJs' },
@@ -41,33 +42,56 @@ module.exports = function (app) {
         { name: 'xmlhttprequest', value: 'XMLHttpRequest Level 2'}
       ].sort(compare);
 
+  routes.index = function (req, res) {
+    res.render('index', {
+      suggestions: suggestionsDefault,
+      techparty: techparty,
+      year: year
+    });
+  };
+
+  routes.submit = function (req, res) {
+    var suggestions = getSuggestions(req.body.opt),
+  	    userName = req.body.opt.username,
+        userEmail = req.body.opt.useremail;
+
+
+    var suggestion = new Suggestion({
+      name: userName,
+      email: userEmail,
+      suggestion: suggestions
+    });
+
+    suggestion.save(function (err, suggestion) {
+      if (err) return console.error(err);
+      req.flash('info', 'Obrigado por ajudar a tornar o melhor evento de todos os tempos');
+      return res.redirect('/');
+    });
+
+    //res.location('/');
+    //res.redirect('/');
+  };
+
+  function getSuggestions (opt) {
+    var values = [];
+    Object.keys(opt).forEach(function (element) {
+      if (element !== 'username' && element !== 'useremail') {
+        if (element === 'suggestion') {
+          values.push(opt[element]);
+        } else {
+          values.push(element);
+        }
+      }
+    });
+    return values;
+  };
+
   function compare (a, b) {
     if (a.name > b.name)
       return 1;
     if (a.name < b.name)
       return -1;
     return 0;
-  };
-
-  routes.index = function (req, resp) {
-    resp.render('index', {
-      suggestions: suggestions,
-      techparty: techparty,
-      year: year
-    });
-  };
-
-  routes.submit = function (req, resp) {
-    var opt = req.body.opt;
-    console.log('opt', opt);
-  	var userName = req.body.opt.username,
-        userEmail = req.body.opt.useremail;
-
-
-    resp.send(userName + ', ' + userEmail);
-
-    //resp.location('/');
-    //resp.redirect('/');
   };
 
   app.get('/', routes.index);

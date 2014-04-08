@@ -12,6 +12,7 @@
     "hbs": "*",
     "mongodb": "*",
     "mongoose": "*",
-    "supervisor": "*"
+    "supervisor": "*",
+    "express-flash": "*"
   }
 }
