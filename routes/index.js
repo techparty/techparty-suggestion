@@ -36,8 +36,24 @@ module.exports = function (app) {
         { name: 'firefox', value: 'Firefox OS' },
         { name: 'heroku', value: 'Heroku Cloud Computing' },
         { name: 'meteor', value: 'Meteor' },
-        { name: 'javascript-template', value: 'JavaScript Templates' }
-      ].sort();
+        { name: 'javascript-template', value: 'JavaScript Templates' },
+        { name: 'ruby', value: 'Ruby' },
+        { name: 'xmlhttprequest', value: 'XMLHttpRequest Level 2'}
+      ].sort(function (a, b) {
+          if (a.name > b.name)
+            return 1;
+          if (a.name < b.name)
+            return -1;
+          return 0;
+        });
+
+  var compare = function (a, b) {
+    if (a.name > b.name)
+      return 1;
+    if (a.name < b.name)
+      return -1;
+    return 0;
+  };
 
   routes.index = function (req, resp) {
     resp.render('index', {
