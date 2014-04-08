@@ -17,16 +17,17 @@ module.exports = function (app) {
   };
 
   routes.submit = function (req, res) {
-    var userEmail = req.body.opt.useremail;
+    var userEmail = req.body.opt.useremail,
+        suggestions = useful.getSuggestions(req.body.opt);
 
     Suggestion.find({ email: userEmail }, function (err, suggestion) {
 
       if (suggestion.length > 0) {
-        var message = 'Hey ' + userEmail + ', você já enviou sua sugestão :)';
-        req.flash('error', message);
+        suggestion[0].suggestion = suggestions;
+        suggestion[0].save()        
+        req.flash('info', 'Seus dados foram atualizados.');
       } else {
-        var userName = req.body.opt.username,
-            suggestions = useful.getSuggestions(req.body.opt);
+        var userName = req.body.opt.username;
 
         suggestion = new Suggestion({
           name: userName,

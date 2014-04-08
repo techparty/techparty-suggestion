@@ -59,7 +59,7 @@ var useful = (function () {
     var values = [];
     Object.keys(opt).forEach(function (element) {
       if (element !== 'username' && element !== 'useremail') {
-        if (element === 'suggestion') {
+        if (element === 'suggestion' && !!opt[element]) {
           values.push(opt[element]);
         } else {
           _suggestionsDefault.map(function (el) {
