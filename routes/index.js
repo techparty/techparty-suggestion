@@ -39,15 +39,9 @@ module.exports = function (app) {
         { name: 'javascript-template', value: 'JavaScript Templates' },
         { name: 'ruby', value: 'Ruby' },
         { name: 'xmlhttprequest', value: 'XMLHttpRequest Level 2'}
-      ].sort(function (a, b) {
-          if (a.name > b.name)
-            return 1;
-          if (a.name < b.name)
-            return -1;
-          return 0;
-        });
+      ].sort(compare);
 
-  var compare = function (a, b) {
+  function compare (a, b) {
     if (a.name > b.name)
       return 1;
     if (a.name < b.name)

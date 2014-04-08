@@ -38,6 +38,39 @@ body {
   box-sizing: border-box;
 }
 
+input[type=text],
+input[type=email],
+textarea {
+  border: 1px solid #CCCCCC;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 3px #DDDDDD inset;
+  padding: 0.5em 0.6em;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+textarea:focus {
+  border-color: #B5CAFF;
+}
+
+button {
+  background-color: #2F6CEF;
+  border: medium none;
+  border-radius: 0.3em;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  height: 2.3em;
+  transition: background-color 0.3s;
+  width: 6em;
+}
+
+button:hover {
+  background-color: #5186EF;
+  transition: background-color 0.3s;
+}
+
 .github-link {
   position: fixed;
   right: 0;
@@ -91,6 +124,12 @@ body {
 .suggestion {
   -moz-columns: 3 auto;
   -webkit-columns: 3 auto;
+}
+
+.required:before {
+  content: "*";
+  margin-right: 0.5em;
+  color: #FF0000;
 }
 
 @media only screen and (min-width : 320px) and (max-width: 567px) {
