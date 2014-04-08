@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TechParty - 2015</title>
+  <title>TechParty - {{year}}</title>
 
   <link rel="shortcut icon" href="images/tech-party.png" type="image/x-icon">
 
@@ -15,8 +15,8 @@
     
     <header class="wrapper header">
       <h1 class="logo-h1">
-        <a href="./" title="TechParty Faccat">
-          <img class="logo" src="images/tech-party.png" alt="TechParty Faccat">
+        <a href="./" title="{{techparty}} Faccat">
+          <img class="logo" src="images/tech-party.png" alt="{{techparty}} Faccat">
         </a>
       </h1>
 
@@ -31,27 +31,29 @@
     <main role="main" class="wrapper main">
       <section class="section">
         <header>
-          <h2 class="section-title">{TechParty 2015}</h2>
+          <h2 class="section-title">{ {{techparty}} {{year}} }</h2>
         </header>
 
         <article>
-          <p>Este site foi criado com o propósito de alunos, professores, ou qualquer ser vivo que goste de tecnologia, possa nos ajudar fazer da TechParty 2015 o melhor evento de todos os tempos.</p>
+          <p>Este site foi criado com o propósito de alunos, professores, ou qualquer ser vivo que goste de tecnologia, possa nos ajudar fazer da {{techparty}} {{year}} o melhor evento de todos os tempos.</p>
           <p>Mas como? o.O</p>
-          <p>Através dele, você nos ajuda a escolher os temas para a TechParty 2015. Basta escolher um ou mais dos assuntos já listados ou adicionar sua própria sugestão.</p>
-          <p>TechParty 2014 já foi um sucesso, nos ajude a fazer da TechParty 2015 um sucesso ainda maior.</p>
+          <p>Através dele, você nos ajuda a escolher os temas para a {{techparty}} {{year}}. Basta escolher um ou mais dos assuntos já listados ou adicionar sua própria sugestão.</p>
+          <p>{{techparty}} 2014 já foi um sucesso, nos ajude a fazer da {{techparty}} {{year}} um sucesso ainda maior.</p>
         </article>
       </section>
 
       <section class="section">
-        <p>Use o formulário abaixo para escolher assuntos para a próxima TechParty.</p>
+        <p>Use o formulário abaixo para escolher assuntos para a próxima {{techparty}}.</p>
 
         <form action="./submit" method="post" id="form">
-          {{#each suggestions}}
-            <p>
-              <input type="checkbox" name="opt[{{name}}]" id="{{name}}">
-              <label for="{{name}}">{{value}}</label>
-            </p>
-          {{/each}}
+          <div class="suggestion">
+            {{#each suggestions}}
+              <p>
+                <input type="checkbox" name="opt[{{name}}]" id="{{name}}">
+                <label for="{{name}}">{{value}}</label>
+              </p>
+            {{/each}}
+          </div>
 
           <p>
             <label for="opt-other">Outra sugestão?</label> <br>
@@ -76,7 +78,7 @@
     </main>
 
     <footer class="wrapper footer">
-      <small>TechParty - <a href="http://techparty.faccat.br/">techparty.faccat.br</a></small>
+      <small>{{techparty}} - <a href="http://techparty.faccat.br/">techparty.faccat.br</a></small>
     </footer>
 
     <!--<a class="github-link" target="_blank" href="https://github.com/danielrohers/techpartyfaccat">
