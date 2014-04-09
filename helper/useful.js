@@ -65,7 +65,7 @@ var useful = (function () {
     return 0;
   };
 
-  var _getSuggestions = function (opt) {
+  function _getSuggestions (opt) {
     var values = [];
     Object.keys(opt).forEach(function (element) {
       if (element !== 'username' && element !== 'useremail') {
@@ -79,13 +79,13 @@ var useful = (function () {
     return values;
   };
 
-  var _forEach = function (array, callback) {
+  function _forEach (array, callback) {
     for (var i = 0; i < array.length; i++) {
       callback(array[i]);
     }
   };
 
-  var _uniqueArray = function (array) {
+  function _uniqueArray (array) {
     return array.filter(function(elem, pos) {
       return array.indexOf(elem) == pos;
     }); 
