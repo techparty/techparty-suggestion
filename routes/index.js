@@ -46,9 +46,9 @@ module.exports = function (app) {
           if (err) {
             req.flash('error', messageError);
             return console.error(err);
+          } else {
+            req.flash('info', 'Obrigado por ajudar a ' + techparty + ' ' + year  + ' ser o melhor evento de todos os tempos');
           }
-          var message = 'Obrigado por ajudar a ' + techparty + ' ' + year  + ' ser o melhor evento de todos os tempos';
-          req.flash('info', message);
         });
       }
 
