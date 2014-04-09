@@ -27,7 +27,7 @@ var db = require('./config/db');
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 
-  config = yaml_config.load(__dirname + 'config/config.yml');
+  //config = yaml_config.load(__dirname + 'config/config.yml');
 }
 
 // models
