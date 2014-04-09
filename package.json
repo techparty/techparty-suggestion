@@ -13,6 +13,7 @@
     "mongodb": "*",
     "mongoose": "*",
     "supervisor": "*",
-    "express-flash": "*"
+    "express-flash": "*",
+    "nodemailer": "*"
   }
 }
