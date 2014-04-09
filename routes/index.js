@@ -112,6 +112,9 @@ module.exports = function (app) {
         text: 'Hello world ✔', // plaintext body
         html: '<b>Hello world ✔</b>' // html body
       });
+
+      // TODO: verificar se enviou o email 
+
     }
 
     //console.log(speakerName);
