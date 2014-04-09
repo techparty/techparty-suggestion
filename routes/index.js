@@ -81,6 +81,8 @@ module.exports = function (app) {
   };
 
   routes.want_speak = function (req, res) {
+    
+    
     res.render('quero-palestrar', {
       techparty: techparty,
       year: year
