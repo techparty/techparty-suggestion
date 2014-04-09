@@ -46,7 +46,8 @@ var useful = (function () {
         { name: 'express', value: 'Express' },
         { name: 'nosql', value: 'NoSQL' },
         { name: 'http', value: 'HTTP 2.0' },
-        { name: 'tdd', value: 'TDD' }
+        { name: 'tdd', value: 'TDD' },
+        { name: 'windows_fone', value: 'Windows Phone' }
       ].sort(_compareAsc);
 
   function _compareAsc (a, b) {
