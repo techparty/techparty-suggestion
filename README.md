@@ -37,3 +37,4 @@ Para executar a aplicação
 
 * [Node.js](http://nodejs.org/)
 * [NPM - Node Packaged Modules](https://www.npmjs.org/)
+* [MongoDB](http://www.mongodb.org/)
