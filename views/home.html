@@ -1,107 +1,57 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>TechParty - 2014.2</title>
+<section class="section">
 
-  <link rel="shortcut icon" href="images/tech-party.png" type="image/x-icon">
+  <header>
+    <h2 class="section-title">{ {{techparty}} {{year}} }</h2>
+  </header>
 
-  <link rel="stylesheet" href="css/style.css">
+  {{#if messages}}
+    <section class="message">
+      {{#if messages.info}}
+        <div class="message-info">
+          <p>{{messages.info}}</p>
+        </div>
+      {{/if}}
 
-</head>
-<body>
+      {{#if messages.error}}
+        <div class="message-error">
+          <p>{{messages.error}}</p>
+        </div>
+      {{/if}}
+    </section>
+  {{/if}}
 
-  <div class="content">
-    
-    <header class="wrapper header">
-      <h1 class="logo-h1">
-        <a href="./" title="TechParty Faccat">
-          <img class="logo" src="images/tech-party.png" alt="TechParty Faccat">
-        </a>
-      </h1>
+  <article>
+    <p>Este site foi criado com o propósito de alunos, professores, ou qualquer ser vivo que goste de tecnologia, e que possam nos ajudar fazer da {{techparty}} {{year}} o melhor evento de todos os tempos.</p>
+    <p>Mas como? o.O</p>
+    <p>Através dele, você pode nos ajudar a escolher os temas para a {{techparty}} {{year}}. Basta escolher um ou mais dos assuntos já listados.</p>
+    <p>{{techparty}} 2014 já foi um sucesso, nos ajude a fazer da {{techparty}} {{year}} um sucesso ainda maior.</p>
+  </article>
+</section>
 
-      <nav>
-        <ul class="nav">
-          <li><a href="/">Home</a></li>
-          <li><a href="#">Rating</a></li>
-        </ul>
-      </nav>
-    </header>
+<section class="section">
+  <p>Use o formulário abaixo para escolher assuntos para a próxima {{techparty}}.</p>
 
-    <main role="main" class="wrapper main">
-      <section class="section">
-        <header>
-          <h2 class="section-title">{TechParty}</h2>
-        </header>
+  <form action="./submit" method="post" id="form">
+    <div class="suggestion">
+      {{#each suggestions}}
+        <p>
+          <input type="checkbox" name="opt[{{name}}]" id="{{name}}">
+          <label for="{{name}}">{{value}}</label>
+        </p>
+      {{/each}}
+    </div>
 
-        <article>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, vel amet asperiores laboriosam ad labore rem ab natus neque dolore illum velit ratione est esse veniam libero quis ipsam nobis similique aut. Qui, eaque iste quam modi expedita eos praesentium deserunt ipsa! Alias, quaerat in iusto molestiae. Voluptatibus, voluptas, obcaecati!
-        </article>
-      </section>
+    <p>
+      <label class="required" for="username">Nome</label> <br>
+      <input type="text" required name="opt[username]" id="username">
+    </p>
 
-      <section class="section">
-        <p>Use o formulário abaixo para escolher assuntos para a próxima TechParty.</p>
+    <p>
+      <label class="required" for="useremail">Email</label> <br>
+      <input type="email" required name="opt[useremail]" id="useremail">
+    </p>
 
-        <form action="" id="form">
-          <p>
-            <input type="checkbox" name="" id="opt-1">
-            <label for="opt-1">Option 1</label>
-          </p>
+    <button type="submit">Enviar</button>
+  </form>
 
-          <p>
-            <input type="checkbox" name="" id="opt-2">
-            <label for="opt-2">Option 2</label>
-          </p>
-
-          <p>
-            <input type="checkbox" name="" id="opt-3">
-            <label for="opt-3">Option 3</label>
-          </p>
-
-          <p>
-            <input type="checkbox" name="" id="opt-4">
-            <label for="opt-4">Option 4</label>
-          </p>
-
-          <p>
-            <input type="checkbox" name="" id="opt-5">
-            <label for="opt-5">Option 5</label>
-          </p>
-
-          <p>
-            <input type="checkbox" name="" id="opt-6">
-            <label for="opt-6">Option 6</label>
-          </p>
-
-          <p>
-            <label for="opt-other">Outra sugestão?</label> <br>
-            <textarea name="" id="opt-other"></textarea>
-          </p>
-        </form>
-
-      </section>
-    
-    </main>
-
-    <footer class="wrapper footer">
-      <small>TechParty - <a href="http://techparty.faccat.br/">techparty.faccat.br</a></small>
-    </footer>
-
-    <!--<a class="github-link" target="_blank" href="https://github.com/danielrohers/techpartyfaccat">
-      <img src="images/forkme.png" alt="Fork me on GitHub">
-    </a>-->
-  </div> <!-- /wrapper -->
-
-
-  <!-- google analytics -->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-49229655-2', 'techpartyfaccat.herokuapp.com');
-    ga('send', 'pageview');
-  </script>
-</body>
-</html>
+</section>

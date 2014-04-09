@@ -5,11 +5,16 @@
   "author": "Fernando Porazzi - Daniel Rohers",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "supervisor app.js"
   },
   "dependencies": {
     "express": "3.x",
     "hbs": "*",
-    "mongodb": "*"
+    "mongodb": "*",
+    "mongoose": "*",
+    "supervisor": "*",
+    "express-flash": "*",
+    "nodemailer": "*",
+    "node-yaml-config": "*"
   }
 }

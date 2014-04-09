@@ -1,0 +1,19 @@
+<section class="section">
+
+  <header>
+    <h2 class="section-title">{ {{techparty}} {{year}} }</h2>
+  </header>
+
+  <article>
+    <p>Veja a popularidade dos assuntos para a próxima edição!</p>
+  </article>
+
+  <article>
+    <ul>
+      {{#each suggestions}}
+        <li class="rt-list-item"><span class="rating-number">{{this.value}}</span> {{this.name}}</li>  
+      {{/each}}
+    </ul>
+  </article>
+
+</section>
