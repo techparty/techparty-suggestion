@@ -74,10 +74,17 @@ button:hover {
 }
 
 .github-link {
-  left: 0;
   position: fixed;
   top: 0;
   z-index: 1;
+}
+
+.github-link-left {
+  left: 0;
+}
+
+.github-link-right {
+  right: 0;
 }
 
 .content {
