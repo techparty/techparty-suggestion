@@ -2,10 +2,12 @@
 
 var mailer = (function () {
 
-  var exports = {},
+  var express = require('express'),
+      app = express(),
+      exports = {},
       nodemailer = require("nodemailer"),
       yaml_config = require('node-yaml-config'),
-      config = yaml_config.load(__dirname + '/config.yml'),
+      config = app.get('env') === 'development' ? yaml_config.load(__dirname + '/config.yml') : null,
       _smtpTransport = nodemailer.createTransport("SMTP",{
         service: "Gmail",
         auth: {
