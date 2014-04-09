@@ -5,9 +5,9 @@ var mongoose = require('mongoose'),
     ObjectId = Schema.ObjectId;
 
 var suggestionSchema = new Schema({
-  name: String,
-  email: String,
-  suggestion: [],
+  name: { type: String, required: true },
+  email: { type: String, index: true, required: true },
+  suggestion: { type: [], index: true, required: true },
   created: { type: Date , default: Date.now } 
 });
 

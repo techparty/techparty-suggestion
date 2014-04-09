@@ -18,15 +18,22 @@ module.exports = function (app) {
 
   routes.submit = function (req, res) {
     var userEmail = req.body.opt.useremail,
-        suggestions = useful.getSuggestions(req.body.opt);
+        suggestions = useful.getSuggestions(req.body.opt),
+        messageError = 'Ops, ocorreu uma falha. Verifique os campos obrigatórios (*) e tente novamente :)';
 
     Suggestion.find({ email: userEmail }, function (err, suggestion) {
 
-      if (suggestion.length > 0) {
+      if (suggestion.length > 0) { // update
         suggestion[0].suggestion = suggestions;
-        suggestion[0].save()        
-        req.flash('info', 'Seus dados foram atualizados.');
-      } else {
+        suggestion[0].save(function (err, sugg) {
+          if (err) {
+            req.flash('error', messageError);
+            return console.error(err);
+          } else {
+            req.flash('info', 'Seus dados foram atualizados.');
+          }
+        });
+      } else { // insert
         var userName = req.body.opt.username;
 
         suggestion = new Suggestion({
@@ -36,7 +43,10 @@ module.exports = function (app) {
         });
 
         suggestion.save(function (err, suggestion) {
-          if (err) return console.error(err);
+          if (err) {
+            req.flash('error', messageError);
+            return console.error(err);
+          }
           var message = 'Obrigado por ajudar a ' + techparty + ' ' + year  + ' ser o melhor evento de todos os tempos';
           req.flash('info', message);
         });
