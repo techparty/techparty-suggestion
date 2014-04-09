@@ -37,7 +37,16 @@ var useful = (function () {
         { name: 'javascript_template', value: 'JavaScript Templates' },
         { name: 'ruby', value: 'Ruby' },
         { name: 'xmlhttprequest', value: 'XMLHttpRequest Level 2' },
-        { name: 'internet', value: 'Internet das Coisas' }
+        { name: 'internet', value: 'Internet das Coisas' },
+        { name: 'polymer', value: 'Polymer' },
+        { name: 'design', value: 'Design' },
+        { name: 'web_app', value: 'Web Apps' },
+        { name: 'grunt', value: 'GruntJS' },
+        { name: 'bower', value: 'Bower' },
+        { name: 'express', value: 'Express' },
+        { name: 'nosql', value: 'NoSQL' },
+        { name: 'http', value: 'HTTP 2.0' },
+        { name: 'tdd', value: 'TDD' }
       ].sort(_compareAsc);
 
   function _compareAsc (a, b) {

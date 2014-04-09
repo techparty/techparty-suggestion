@@ -26,8 +26,6 @@
 
   window.main = main;
 
-})(window, document);
-
-(function () {
   main.init();
-})();
+
+})(window, document);
