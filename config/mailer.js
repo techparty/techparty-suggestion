@@ -6,11 +6,15 @@ var mailer = (function () {
       app = express(),
       config = null;
 
-  console.log(app.get('env'));
-
   if (app.get('env') == 'development') {
     config = yaml_config.load(__dirname + '/config.yml');
   }
+
+  var user = process.env.EMAIL_USER || config.email.user,
+      pass = process.env.EMAIL_PASS || config.email.pass;
+
+  console.log('user_email', user);
+  console.log('pass_email', pass);
 
   var exports = {},
       nodemailer = require("nodemailer"),
@@ -18,8 +22,8 @@ var mailer = (function () {
       _smtpTransport = nodemailer.createTransport("SMTP",{
         service: "Gmail",
         auth: {
-          user: process.env.EMAIL_USER || config.email.user,
-          pass: process.env.EMAIL_PASS || config.email.pass
+          user: user,
+          pass: pass
         }
       });
 
