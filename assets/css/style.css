@@ -180,6 +180,7 @@ button:hover {
   float: left;
   margin-bottom: 10px;
   line-height: 35px;
+  border: 1px solid #888;
 }
 
 .rating-number {
