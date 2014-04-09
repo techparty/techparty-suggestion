@@ -27,7 +27,8 @@ module.exports = function (app) {
         from: speakerName + ' <' + speakerEmail + '>',
         to: 'rohersmoura@gmail.com, fporazzi46@gmail.com',
         subject: 'Quero palestrar na TechParty 2015',
-        text: speakerDesc
+        text: speakerDesc,
+        html: '<h2>Desejo palestrar na TechParty 2015</h2><br /><br /><strong>Nome: </strong>' + speakerName + '<br /><strong>Email: </strong>' + speakerEmail + '<br /><br />' + speakerDesc
       }, function (response) {
         if (response) {
           req.flash('info', 'Email enviado com sucesso!');
