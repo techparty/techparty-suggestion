@@ -76,12 +76,21 @@ module.exports = function (app) {
         suggestions: result.sort(useful.compareDesc),
         techparty: techparty,
         year: year
-      })
-    })
-  }
+      });
+    });
+  };
+
+  routes.want_speak = function (req, res) {
+    res.render('quero-palestrar', {
+      techparty: techparty,
+      year: year
+    });
+  };
+
 
   app.get('/', routes.home);
   app.post('/submit', routes.submit);
   app.get('/rating', routes.rating);
+  app.get('/quero-palestrar', routes.want_speak);
 
 };

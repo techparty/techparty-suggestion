@@ -4,12 +4,16 @@
     <h2 class="section-title">{ {{techparty}} {{year}} }</h2>
   </header>
 
-</section>
+  <article>
+    <p>Veja a popularidade dos assuntos para a próxima edição!</p>
+  </article>
 
-<article>
-  <ul>
-    {{#each suggestions}}
-      <li>{{this.value}} - {{this.name}}</li>  
-    {{/each}}
-  </ul>
-</article>
+  <article>
+    <ul>
+      {{#each suggestions}}
+        <li>{{this.value}} - {{this.name}}</li>  
+      {{/each}}
+    </ul>
+  </article>
+
+</section>
