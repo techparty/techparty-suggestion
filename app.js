@@ -6,7 +6,8 @@ var flash = require('express-flash'),
     hbs = require('hbs'),
     path = require('path'),
     fs = require('fs'),
-    mongoose = require ("mongoose");
+    mongoose = require ("mongoose"),
+    mail = require("nodemailer").mail;
 
 app.use(express.static('assets'));
 app.set('view engine', 'html');
