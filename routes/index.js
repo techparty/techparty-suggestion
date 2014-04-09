@@ -104,6 +104,14 @@ module.exports = function (app) {
 
     if (!speakerName || !speakerEmail || !speakerDesc) {
       console.log('todos os campos tem preenchimento obrigatório');
+    } else {
+      mail({
+        from: speakerName + ' <' + speakerEmail + '>', // sender address
+        to: 'fporazzi46@gmail.com', // list of receivers
+        subject: 'Quero palestrar na TechParty 2015', // Subject line
+        text: 'Hello world ✔', // plaintext body
+        html: '<b>Hello world ✔</b>' // html body
+      });
     }
 
     //console.log(speakerName);
