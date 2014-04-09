@@ -81,18 +81,30 @@ module.exports = function (app) {
   };
 
   routes.want_speak = function (req, res) {
-    
-    
     res.render('quero-palestrar', {
       techparty: techparty,
       year: year
     });
   };
 
+  routes.submit_speaker = function (req, res) {
+    var speakerName = req.body.speaker_name,
+        speakerEmail = req.body.speaker_email,
+        speakerDesc = req.body.speaker_desc;
+
+    if (!speakerName || !speakerEmail || !speakerDesc) {
+      console.log('todos os campos tem preenchimento obrigatório');
+    }
+
+    //console.log(speakerName);
+    //console.log(speakerEmail);
+    //console.log(speakerDesc);
+  };
 
   app.get('/', routes.home);
   app.post('/submit', routes.submit);
   app.get('/rating', routes.rating);
   app.get('/quero-palestrar', routes.want_speak);
+  app.post('/submit-speaker', routes.submit_speaker);
 
 };
