@@ -175,6 +175,24 @@ button:hover {
   float: right;
 }
 
+.rt-list-item {
+  width: 100%;
+  float: left;
+  margin-bottom: 10px;
+  line-height: 35px;
+}
+
+.rating-number {
+  background: #dedede;
+  width: 35px;
+  height: 35px;
+  outline: 1px solid #888;
+  float: left;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 10px;
+}
+
 @media only screen and (min-width : 320px) and (max-width: 567px) {
   .suggestion {
     -moz-columns: 1 auto;
