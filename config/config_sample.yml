@@ -1,0 +1,4 @@
+default:
+  email:
+    user: example@example.com
+    pass: example

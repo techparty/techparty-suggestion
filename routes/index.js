@@ -6,7 +6,8 @@ module.exports = function (app) {
       Suggestion = require('../models/suggestion'),
       techparty = useful.techparty,
       year = useful.year,
-      routes = {};
+      routes = {},
+      mailer = require('../config/mailer');
 
   routes.home = function (req, res) {
     res.render('home', {
@@ -105,21 +106,21 @@ module.exports = function (app) {
     if (!speakerName || !speakerEmail || !speakerDesc) {
       console.log('todos os campos tem preenchimento obrigatório');
     } else {
-      mail({
-        from: speakerName + ' <' + speakerEmail + '>', // sender address
-        to: 'fporazzi46@gmail.com', // list of receivers
-        subject: 'Quero palestrar na TechParty 2015', // Subject line
-        text: 'Hello world ✔', // plaintext body
-        html: '<b>Hello world ✔</b>' // html body
+      mailer.sendMail({
+        from: speakerName + ' <' + speakerEmail + '>',
+        to: 'rohersmoura@gmail.com, fporazzi46@gmail.com',
+        subject: 'Quero palestrar na TechParty 2015',
+        text: speakerDesc
+      }, function (response) {
+        if (response) {
+          req.flash('info', 'Email enviado com sucesso!');
+        } else {
+          req.flash('error', 'Ops, aconteceu algo inexperado. Tente novamente.');
+        }
+
+        return res.redirect('/');
       });
-
-      // TODO: verificar se enviou o email 
-
     }
-
-    //console.log(speakerName);
-    //console.log(speakerEmail);
-    //console.log(speakerDesc);
   };
 
   app.get('/', routes.home);
