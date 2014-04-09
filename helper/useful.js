@@ -47,7 +47,8 @@ var useful = (function () {
         { name: 'nosql', value: 'NoSQL' },
         { name: 'http', value: 'HTTP 2.0' },
         { name: 'tdd', value: 'TDD' },
-        { name: 'windows_fone', value: 'Windows Phone' }
+        { name: 'windows_fone', value: 'Windows Phone' },
+        { name: 'big_data', value: 'Big Data' }
       ].sort(_compareAsc);
 
   function _compareAsc (a, b) {
