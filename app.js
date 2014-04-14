@@ -1,6 +1,7 @@
 'use strict';
 
-var flash = require('express-flash'),
+var newrelic = require('newrelic'),
+    flash = require('express-flash'),
     express = require('express'),
     app = express(),
     hbs = require('hbs'),
@@ -26,6 +27,8 @@ var db = require('./config/db');
 
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
+
+  //config = yaml_config.load(__dirname + 'config/config.yml');
 }
 
 // models
