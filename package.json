@@ -15,6 +15,7 @@
     "supervisor": "0.5.7",
     "express-flash": "0.0.2",
     "nodemailer": "0.6.2",
-    "node-yaml-config": "0.0.2"
+    "node-yaml-config": "0.0.2",
+    "newrelic" : "1.5.0"
   }
 }

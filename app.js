@@ -1,6 +1,7 @@
 'use strict';
 
-var flash = require('express-flash'),
+var newrelic = require('newrelic'),
+    flash = require('express-flash'),
     express = require('express'),
     app = express(),
     hbs = require('hbs'),
