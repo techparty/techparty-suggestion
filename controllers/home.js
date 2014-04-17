@@ -1,14 +1,14 @@
-module.exports = function (app) {
+'use strict';
 
-  'use strict';
+var home = (function () {
 
   var useful = require('../helper/useful'),
       Suggestion = require('../models/suggestion'),
       techparty = useful.techparty,
       year = useful.year,
-      routes = {};
+      exports = {};
 
-  routes.home = function (req, res) {
+  exports.home = function (req, res) {
     res.render('home', {
       suggestions: useful.suggestionsDefault,
       techparty: techparty,
@@ -16,7 +16,7 @@ module.exports = function (app) {
     });
   };
 
-  routes.submit = function (req, res) {
+  exports.submit = function (req, res) {
     var userEmail = req.body.opt.useremail,
         suggestions = useful.getSuggestions(req.body.opt),
         messageError = 'Ops, ocorreu uma falha. Verifique os campos obrigatórios (*) e tente novamente :)';
@@ -56,7 +56,8 @@ module.exports = function (app) {
     });
   };
 
-  app.get('/', routes.home);
-  app.post('/submit', routes.submit);
+  return exports;
 
-};
+})();
+
+module.exports = home;

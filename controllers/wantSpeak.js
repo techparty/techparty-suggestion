@@ -1,21 +1,21 @@
-module.exports = function (app) {
+'use strict';
 
-  'use strict';
+var wantSpeak = (function () {
 
-  var useful = require('../helper/useful'),
+  var exports = {},
+      useful = require('../helper/useful'),
       techparty = useful.techparty,
       year = useful.year,
-      routes = {},
       mailer = require('../config/mailer');
 
-  routes.want_speak = function (req, res) {
+  exports.want_speak = function (req, res) {
     res.render('quero-palestrar', {
       techparty: techparty,
       year: year
     });
   };
 
-  routes.submit_speaker = function (req, res) {
+  exports.submit_speaker = function (req, res) {
     var speakerName = req.body.speaker_name,
         speakerEmail = req.body.speaker_email,
         speakerDesc = req.body.speaker_desc;
@@ -41,7 +41,8 @@ module.exports = function (app) {
     }
   };
 
-  app.get('/quero-palestrar', routes.want_speak);
-  app.post('/quero-palestrar/submit-speaker', routes.submit_speaker);
+  return exports;
 
-};
+})();
+
+module.exports = wantSpeak;

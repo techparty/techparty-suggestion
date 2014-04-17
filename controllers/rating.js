@@ -1,14 +1,14 @@
-module.exports = function (app) {
+'use strict';
 
-  'use strict';
+var rating = (function () {
 
   var useful = require('../helper/useful'),
       Suggestion = require('../models/suggestion'),
       techparty = useful.techparty,
       year = useful.year,
-      routes = {};
+      exports = {};
 
-  routes.rating = function (req, res) {
+  exports.rating = function (req, res) {
     var suggestions = Suggestion.find(function (err, suggestions) {
       if (err) return console.error(err);
 
@@ -42,6 +42,8 @@ module.exports = function (app) {
     });
   };
 
-  app.get('/rating', routes.rating);
+  return exports;
 
-};
+})();
+
+module.exports = rating;
