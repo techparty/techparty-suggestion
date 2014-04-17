@@ -29,9 +29,9 @@ module.exports = function (app) {
           if (err) {
             req.flash('error', messageError);
             return console.error(err);
-          } else {
-            req.flash('info', 'Seus dados foram atualizados.');
           }
+
+          req.flash('info', 'Seus dados foram atualizados.');
         });
       } else { // insert
         var userName = req.body.opt.username;
@@ -46,9 +46,9 @@ module.exports = function (app) {
           if (err) {
             req.flash('error', messageError);
             return console.error(err);
-          } else {
-            req.flash('info', 'Obrigado por ajudar a ' + techparty + ' ' + year  + ' ser o melhor evento de todos os tempos');
           }
+
+          req.flash('info', 'Tchê, obrigado por ajudar a ' + techparty + ' ' + year  + ' ser o melhor evento de todos os tempos');
         });
       }
 
