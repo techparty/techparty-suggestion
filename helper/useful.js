@@ -48,7 +48,12 @@ var useful = (function () {
         { name: 'http', value: 'HTTP 2.0' },
         { name: 'tdd', value: 'TDD' },
         { name: 'windows_fone', value: 'Windows Phone' },
-        { name: 'big_data', value: 'Big Data' }
+        { name: 'big_data', value: 'Big Data' },
+        { name: 'python', value: 'Python' },
+        { name: 'python_django', value: 'Python / Django' },
+        { name: 'business_intelligence', value: 'Business Intelligence' },
+        { name: 'google_app_engine', value: 'Google App Engine' },
+        { name: 'tuning_banco', value: 'Tuning para Banco' }
       ].sort(_compareAsc);
 
   function _compareAsc (a, b) {
