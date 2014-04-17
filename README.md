@@ -1,3 +1,5 @@
+[ ![Codeship Status for techparty/techparty-suggestion](https://www.codeship.io/projects/098cb5e0-a090-0131-891f-56876b1e6c6a/status?branch=master)](https://www.codeship.io/projects/18214)
+
 # TechParty FACCAT 2015
 
 Projeto para a comunidade dar sugestões de assuntos para a próxima TechParty, que será realizada no segundo semestre de 2014.
