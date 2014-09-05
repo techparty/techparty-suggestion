@@ -10,6 +10,9 @@ var newrelic = require('newrelic'),
     mongoose = require ("mongoose"),
     mail = require("nodemailer").mail;
 
+// config notetime
+require('./nodetime');
+
 app.use(express.static('assets'));
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
