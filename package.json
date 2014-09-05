@@ -16,6 +16,7 @@
     "express-flash": "0.0.2",
     "nodemailer": "0.6.2",
     "node-yaml-config": "0.0.2",
-    "newrelic" : "1.5.0"
+    "newrelic" : "1.5.0",
+    "nodetime" : "0.8.15"
   }
 }
