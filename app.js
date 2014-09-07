@@ -46,8 +46,6 @@ fs.readdirSync(routesPath).forEach(function(file) {
   require(routesPath + '/' + file)(app);
 });
 
-console.log('init app');
-
 var port = Number(process.env.PORT || 3000);
 app.listen(port, function () {
   console.log("Listening on " + port);

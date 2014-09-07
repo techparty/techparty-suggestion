@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "express": "3.5.1",
+    "express-flash": "0.0.2",
     "hbs": "2.6.0",
     "mongodb": "1.4.0",
     "mongoose": "3.8.8",
-    "supervisor": "0.5.7",
-    "express-flash": "0.0.2",
-    "nodemailer": "0.6.2",
+    "newrelic": "1.5.0",
     "node-yaml-config": "0.0.2",
-    "newrelic" : "1.5.0",
-    "nodetime" : "0.8.15"
+    "nodemailer": "0.6.2",
+    "nodetime": "0.8.15",
+    "supervisor": "0.5.7"
   }
 }
