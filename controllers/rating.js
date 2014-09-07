@@ -1,49 +1,57 @@
 'use strict';
 
-var rating = (function () {
+var useful = require('../helper/useful');
+var Suggestion = require('../models/suggestion');
+var techparty = useful.techparty;
+var year = useful.year;
 
-  var useful = require('../helper/useful'),
-      Suggestion = require('../models/suggestion'),
-      techparty = useful.techparty,
-      year = useful.year,
-      exports = {};
+var _getUnique = function (suggestions) {
+	var unique = [];
+	useful.forEach(suggestions, function (sug) {
+	  useful.forEach(sug.suggestion, function (value) {
+			if (value) {
+			  unique.push(value);
+			}
+	  });
+	});
+	return unique;
+};
 
-  exports.rating = function (req, res) {
-    var suggestions = Suggestion.find(function (err, suggestions) {
-      if (err) return console.error(err);
+var _getResult = function (unique, suggestions) {
+	var result = [];
+	useful.forEach(useful.uniqueArray(unique), function (value) {
+	  var count = 0;
+	  useful.forEach(suggestions, function (sug) {
+			useful.forEach(sug.suggestion, function (suggestion) {
+			  if (suggestion == value) {
+				  count += 1;
+			  }
+			});
+	  });
+	  result.push({name: value, value: count});
+	});
+	return result.sort(useful.compareDesc);
+};
 
-      var unique = [];
-      useful.forEach(suggestions, function (el) {
-        useful.forEach(el.suggestion, function (value) {
-          if (value) {
-            unique.push(value);
-          }
-        });
-      });
+var _render = function (res, result) {
+	res.render('rating', {
+	  suggestions: result,
+	  techparty: techparty,
+	  year: year
+	});
+};
 
-      var result = [];
-      useful.forEach(useful.uniqueArray(unique), function (value) {
-        var count = 0;
-        useful.forEach(suggestions, function (el) {
-          useful.forEach(el.suggestion, function (suggestion) {
-            if (suggestion == value) {
-              count += 1;
-            }
-          });
-        });
-        result.push({name: value, value: count});
-      });
 
-      res.render('rating', {
-        suggestions: result.sort(useful.compareDesc),
-        techparty: techparty,
-        year: year
-      });
-    });
-  };
+module.exports = {
 
-  return exports;
+  rating : function (req, res) {
+		var suggestions = Suggestion.find(function (err, suggestions) {
+		if (err) return console.error(err);
+		  var unique = _getUnique(suggestions);
+		  var result = _getResult(unique, suggestions);
 
-})();
+		  _render(res, result);
+		});
+  }
 
-module.exports = rating;
+};
