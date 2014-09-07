@@ -1,6 +1,8 @@
-var nodetime = require('nodetime');
+var accountKey = process.env.NODETIME;
 
-nodetime.profile({
-  accountKey: process.env.NODETIME,
-  appName: 'techpartysuggestion'
-});
+if (accountKey) {
+  nodetime.profile({
+    accountKey: process.env.NODETIME,
+    appName: 'techpartysuggestion'
+  });
+}
