@@ -1,6 +1,5 @@
 'use strict';
 
-var newrelic = require('newrelic');
 var flash = require('express-flash');
 var express = require('express');
 var app = express();
@@ -40,7 +39,4 @@ fs.readdirSync(routesPath).forEach(function(file) {
 	require(routesPath + '/' + file)(app);
 });
 
-var port = Number(process.env.PORT || 3000);
-app.listen(port, function () {
-	console.log("Listening on " + port);
-});
+module.exports = app;

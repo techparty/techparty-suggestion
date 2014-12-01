@@ -5,9 +5,10 @@
   "author": "Fernando Porazzi - Daniel Rohers",
   "private": true,
   "scripts": {
-    "start": "supervisor app.js"
+    "start": "node ./bin/www"
   },
   "dependencies": {
+    "cluster": "^0.7.7",
     "express": "3.5.1",
     "express-flash": "0.0.2",
     "hbs": "2.6.0",
@@ -16,7 +17,6 @@
     "newrelic": "1.5.0",
     "node-yaml-config": "0.0.2",
     "nodemailer": "0.6.2",
-    "nodetime": "0.8.15",
-    "supervisor": "0.5.7"
+    "winston": "^0.8.3"
   }
 }

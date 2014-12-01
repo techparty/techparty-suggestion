@@ -1,1 +1,1 @@
-web: node app.js --production
+web: node bin/www
