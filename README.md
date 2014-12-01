@@ -15,11 +15,7 @@ Mais informações: https://help.github.com/articles/fork-a-repo
 
 ### Tenho um fork do projeto. E agora?
 
-Depois de ter um fork do projeto e ter o projeto clonado em sua máquina, é hora de trocar o branch. Um branch serve para separarmos as modificações que desejamos fazer do branch master do projeto, que teoricamente é o que está em produção. Nós, já temos um branch criado (development) para desenvolvimento. Para isto, basta executar o seguinte comando (no diretório do projeto):
-
-> $ git checkout development
-
-Caso queira criar seu próprio branch, execute:
+Depois de ter um fork do projeto e ter o projeto clonado em sua máquina, é hora de trocar o branch. Um branch serve para separarmos as modificações que desejamos fazer do branch master do projeto, que teoricamente é o que está em produção.
 
 > $ git checkout -b seu-branch
 
