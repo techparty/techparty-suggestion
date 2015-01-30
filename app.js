@@ -21,7 +21,7 @@ app.use(express.session({ cookie: { maxAge: 60000 }}));
 app.use(flash());
 
 // Connect to database
-var db = require('./config/db');
+require('./config/db')(app);
 
 if ('development' == app.get('env')) {
 	app.use(express.errorHandler());

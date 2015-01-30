@@ -1,28 +1,36 @@
-'use strict';
-var mongoose = require('mongoose');
+module.exports = function (app) {
 
-var config = {
-  "db": "techpartysuggestion",  
-  "host": "localhost",  
-  "user": "",
-  "pw": "",
-  "port": 27017
-};
+	'use strict';
 
-var port = (config.port.length > 0) ? ":" + config.port : '';
-var login = (config.user.length > 0) ? config.user + ":" + config.pw + "@" : '';
-var uristring =  process.env.MONGOLAB_URI || process.env.MONGOHQ_URL ||  "mongodb://" + login + config.host + port + "/" + config.db;
+	var mongoose = require('mongoose');
 
-var mongoOptions = { db: { safe: true } };
+	var config = {
+	  "db": "techpartysuggestion",
+	  "host": "localhost",
+	  "user": "",
+	  "pw": "",
+	  "port": 27017
+	};
 
-// Connect to Database
-mongoose.connect(uristring, mongoOptions, function (err, res) {
-  if(err){
-    console.log('ERROR connecting to: ' + uristring + '. ' + err);
-  }else{
-    console.log('Successfully connected to: ' + uristring);
-  }
-});
+	var port = (config.port.length > 0) ? ":" + config.port : '';
+	var login = (config.user.length > 0) ? config.user + ":" + config.pw + "@" : '';
 
+	var uristring;
+	if (app.get('env') === 'development') {
+		uristring = "mongodb://" + login + config.host + port + "/" + config.db;
+	} else {
+		uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
+	}
 
-exports.mongoose = mongoose;
+	var mongoOptions = { db: { safe: true } };
+
+	// Connect to Database
+	mongoose.connect(uristring, mongoOptions, function (err, res) {
+	  if(err){
+	    console.log('ERROR connecting to: ' + uristring + '. ' + err);
+	  }else{
+	    console.log('Successfully connected to: ' + uristring);
+	  }
+	});
+
+}
